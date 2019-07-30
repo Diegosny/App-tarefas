@@ -1,4 +1,5 @@
 <?php
+    session_start();
     use app_lista_tarefas\app_lista_tarefas\Tarefa;
     use app_lista_tarefas\app_lista_tarefas\TarefaService;
     use app_lista_tarefas\app_lista_tarefas\Conexao;
@@ -25,6 +26,18 @@
 	    $tarefaService = new TarefaService($conexao, $tarefa);
 	    $tarefas = $tarefaService->recuperar();
 
+    } else if ($acao == 'atualizar') {
+        $tarefa = new Tarefa();
+        $tarefa->__set('id', $_POST['id']);
+        $tarefa->__set('tarefa', $_POST['tarefa']);
+
+        $conexao = new Conexao();
+
+        $tarefaService = new TarefaService($conexao, $tarefa);
+        if($tarefaService->atualizar()) {
+            header('location: todas_tarefas.php');
+            $_SESSION['msg'] = 'Registro atualizado com sucesso';
+        }
     }
 
 ?>

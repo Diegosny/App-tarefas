@@ -1,10 +1,7 @@
 <?php
+//    session_start();
     $acao = 'recuperar';
     require_once ('tarefa_controller.php');
-
-//    echo '<pre>';
-//    print_r($tarefas);
-//    echo '</pre>';
 ?>
 <html>
 	<head>
@@ -20,7 +17,7 @@
             const editar = (id, txt) => {
                 //Criar um formulario
                 let form = document.createElement('form');
-                form.action = '#';
+                form.action = 'tarefa_controller.php?acao=atualizar';
                 form.method = 'post';
                 form.className = 'column ';
 
@@ -68,6 +65,14 @@
 				</a>
 			</div>
 		</nav>
+
+        <?php if(isset($_SESSION['msg'])) { ?>
+        <div id="update" class="bg-success text-white d-flex justify-content-center pt-2">
+            <h5>
+                <?php echo $_SESSION['msg']; unset($_SESSION['msg']); ?>
+            </h5>
+        </div>
+        <?php } ?>
 
 		<div class="container app">
 			<div class="row">
