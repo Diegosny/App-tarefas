@@ -1,7 +1,6 @@
 <?php
     $acao = 'recuperarPendentes';
     require_once ('tarefa_controller.php');
-    print_r($_SESSION);
 ?>
 <html>
 	<head>
