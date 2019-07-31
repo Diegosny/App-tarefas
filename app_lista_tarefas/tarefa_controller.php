@@ -19,6 +19,7 @@
         $tarefaService = new TarefaService($conexao, $tarefa);
         $tarefaService->inserir();
         header('location: nova_tarefa.php?inclusao=1');
+
     } else if($acao === 'recuperar') {
 	    $tarefa = new Tarefa();
 	    $conexao = new Conexao();
