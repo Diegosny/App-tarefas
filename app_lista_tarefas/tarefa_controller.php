@@ -11,6 +11,9 @@
 
 	$acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
 
+//	//Filtrar e validar
+//    $tarefa = filter_input($_POST, 'tarefa', );
+
 	if($acao === 'inserir') {
         $tarefa = new Tarefa();
         $tarefa->__set('tarefa', $_POST['tarefa']);
@@ -83,4 +86,3 @@
 
     }
 
-?>

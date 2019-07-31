@@ -19,5 +19,3 @@
             $this->$attribute = $valor;
         }
     }
-
-?>
